@@ -1,0 +1,45 @@
+DAY 01
+PASCAL'S TRIANGLE
+
+In simpler terms, Pascal's triangle is an infinite triangular array of numbers, the triangle starts with a single number 1 at the top. Each following row is formed by adding neighbouring integers from the previous row, with 1s on the margins. The resulting pattern is a symmetrical triangle of integers.
+In this article, we will explore how to generate Pascal's triangle using Iteration, Recursion & memoization in Java.
+
+-Using Iteration
+
+Code Explanation:
+I imported Scanner, which allows  user input and is used to calculate the number of rows to generate in Pascal's triangle and then we build a Scanner object in the main method to read user input.We then come across a nested for loop.
+
+The number of rows in the triangle is controlled by the outer loop, denoted by the variable i.It iterates from 0 to n - 1, where n is the number of rows specified by the user.The inner loop, denoted by the variable j, appears within the outer loop.This loop is in charge of printing spaces before each row in order to form the triangle shape.It prints n - i - 1 spaces in a row, decrementing with each iteration.
+
+Following the inner loop, we set the variable number to 1.This variable represents the number currently displayed in the triangle.Then we enter another loop, marked by the variable k, which is in charge of calculating and outputting the numbers in each row.
+
+We print the value of number followed by a space throughout this loop.Then, for the next iteration, we use a formula based on the concept of combinations to update the value of number.The number = number * (i - k) / (k + 1) formula computes the next number in the row based on the preceding number and its position.Finally, we use System.out.println() to move to a new line after printing all the integers in a row.
+
+
+-Using Recursion
+
+Code Explanation:
+I have imported the Scanner class from the java.util package to read user input.Inside the print method, we have two nested for loops.The outer loop, controlled by the variable i, iterates from 0 to n-1 to represent the rows of the triangle.The inner loop, controlled by the variable j, iterates from 0 to i to represent the elements in each row.
+
+We output the value of pascal(i, j) calculated by running the pascal method within the inner loop.This method is in charge of calculating the value at the specified point (i, j) in Pascal's triangle.The pascal method is a recursive function that computes the value at each point in the triangle.It accepts two integer parameters, i and j, which indicate the row and column indices.
+
+We basically have three conditions in this pascal method:
+-If j is zero or equal to i, we are at the start or end of a row, and the value should be one. We return 1 in any case.
+-If none of the mentioned conditions are met, we call the pascal algorithm recursively with updated indices.The value at location (i, j) is the sum of the values at positions (i-1, j-1) and (i-1, j) in the previous row.
+
+The main method is the program's starting point. To read user input, it creates a Scanner object. It prompts the user to specify the desired number of rows in the Pascal's triangle.When the user enters the number of rows, the print method is run with the user input as the argument, creating and printing the Pascal's triangle.
+
+-Using Memoization
+
+Code Explanation:
+To implement memoization, we use a HashMap called memo to store computed coefficients.The memo map has row indices as keys, each associated with an inner HashMap containing column indices as keys and their corresponding coefficient values as values.Here in Main method, we define the variable numRows and set it to 10,also we have two nested for loops.The outer loop, controlled by the variable i, iterates from 0 to numRows - 1 to represent the rows of the triangle.The inner loop, controlled by the variable j, iterates from 0 to i to represent the elements in each row.
+
+getCoefficient method, retrieves or calculates the coefficient for the given position and prints it followed by a space.First, we handle the base cases where the column index is 0 or equal to the row index.In these cases, the coefficient is always 1, so we return 1.Next, we check if the coefficient for the given position is already present in the memo map.If it exists, we retrieve and return the precomputed value, avoiding redundant calculations.
+
+If the coefficient is not found in the memo map, we calculate it iteratively using the formula: coefficient = getCoefficient(row - 1, col - 1) + getCoefficient(row - 1, col - 1) + getCoefficient(row - 1, col). This formula is equivalent to adding the two adjacent coefficients from the row above.
+
+After calculating the coefficient, we use the computeIfAbsent function to save it in the memo map. If the row index is not found in the memo map, a new inner HashMap is created. The column index is then associated with the determined coefficient.Finally, we output the calculated coefficient.
+
+
+In this article, we explored how to generate Pascal's triangle using Iteration,Recursion & memoization in Java. 
+The program dynamically calculates the values within the triangle using the recursive approach we've used, with its capacity to break big issues down into simpler ones, recursion enables us to create Pascal's triangle with efficiency.By utilizing memoization, we significantly reduce redundant calculations, also improving the efficiency of the program. 
