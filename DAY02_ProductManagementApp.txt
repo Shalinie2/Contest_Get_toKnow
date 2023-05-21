@@ -1,0 +1,16 @@
+DAY-02 
+PRODUCT MANAGEMENT APP
+
+Add methods (Using Stream API):
+-Search Product by Place
+-Search Products out of warranty
+
+This code manages a list of products using the ProductService class. The program performs various operations such as adding products, searching for products based on different criteria, and displaying the results.
+
+Searching for Products by Place:
+We can search for products that are located in a given location by using the getProductsInPlace() method. We pass the location as a parameter, and the method returns a list of products that match that location.
+
+Retrieving Out of Warranty Products:
+The getOutOfWarrantyProducts() method is used to locate products that are no longer covered under warranty. This function looks for products that were purchased before the current year and returns a list of them.
+
+we used two methods within the ProductService class that utilize the Stream API in Java. The getProductsInPlace() method allows us to search for products based on their location, while the getOutOfWarrantyProducts() method helps us find products that are no longer under warranty.
